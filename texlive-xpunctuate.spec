@@ -48,3 +48,11 @@ TeXLive xpunctuate package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Fri Aug 10 2012 Paulo Andrade <pcpa@mandriva.com.br> 20120810-1
++ Revision: 813869
+- Import texlive-xpunctuate
+- Import texlive-xpunctuate
+
