@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-xpunctuate
 Version:	20120810
-Release:	4
+Release:	5
 Summary:	TeXLive xpunctuate package
 Group:		Publishing
 URL:		http://tug.org/texlive
