@@ -5,8 +5,8 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-xpunctuate
-Version:	20120810
-Release:	9
+Version:	1.0
+Release:	1
 Summary:	TeXLive xpunctuate package
 Group:		Publishing
 URL:		http://tug.org/texlive
