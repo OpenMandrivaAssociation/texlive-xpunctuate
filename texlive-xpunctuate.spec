@@ -1,6 +1,6 @@
 Name:		texlive-xpunctuate
 Version:	26641
-Release:	1
+Release:	2
 Summary:	TeXLive xpunctuate package
 Group:		Publishing
 URL:		http://tug.org/texlive
