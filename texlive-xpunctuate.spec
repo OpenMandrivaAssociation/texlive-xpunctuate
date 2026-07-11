@@ -1,45 +1,29 @@
-Name:		texlive-xpunctuate
-Version:	26641
-Release:	2
-Summary:	TeXLive xpunctuate package
+%global tl_name xpunctuate
+%global tl_revision 67918
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.0
+Release:	%{tl_revision}.1
+Summary:	Process trailing punctuation which may be redundant
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/xpunctuate.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/xpunctuate.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/xpunctuate.source.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/xpunctuate
+License:	lppl1.3c
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/xpunctuate.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/xpunctuate.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/xpunctuate.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive xpunctuate package.
+The package provides commands enabling the user (or package writer) to
+insert punctuation after a macro. The method is similar to that of
+xspace, but goes further. The package provides the commands \xperiod,
+\xcomma and \xperiodcomma, which follow a similar procedure to that of
+\xspace, and insert punctuation if and only if it is necessary. It also
+provides \xperiodafter, \xcommaafter, \xperiodcommaafter and
+\xspaceafter, which all take one argument, the word or phrase to be
+punctuated. These then avoid problems with the spacing of periods and
+commas after emphasised words.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/xpunctuate/xpunctuate.sty
-%doc %{_texmfdistdir}/doc/latex/xpunctuate/README
-%doc %{_texmfdistdir}/doc/latex/xpunctuate/xpunctuate.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/xpunctuate/xpunctuate.dtx
-%doc %{_texmfdistdir}/source/latex/xpunctuate/xpunctuate.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
